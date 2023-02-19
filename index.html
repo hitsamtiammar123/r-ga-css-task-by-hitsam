@@ -12,8 +12,28 @@
 </head>
 <body>
  <div class="container">
-    <div class="text-container"></div>
+    <div class="text-container">
+        <!-- <img src="https://codepen-large-media.s3-ap-southeast-1.amazonaws.com/tumblr_o632cm2m4S1rurt8eo1_500.webp" class="video-svg"/> -->
+        <svg class="text-svg" width="100%" height="100%">
+          <defs>
+            <mask id="mask">
+              <text x="50%" y="55%" class="svg-text" id="number-text" fill="white" text-anchor="middle">123456789</text>
+            </mask>
+          </defs>
+          <image width="100%" height="100%" xlink:href="https://codepen-large-media.s3-ap-southeast-1.amazonaws.com/tumblr_o632cm2m4S1rurt8eo1_500.webp" mask="url(#mask)"/>
+        </svg>
+    </div>
     <button class="footer-button">Click Me!</button>
  </div>
+ <script type="text/javascript">
+  (function(){
+    var numberText = document.getElementById('number-text');
+    setInterval(function(){
+      var diff = 1000000000 - 100000000
+      var nums = Math.floor(Math.random() * diff + 100000000);
+      numberText.innerHTML  = nums;
+    }, 375)
+  })()
+ </script>
 </body>
 </html>
