@@ -14,7 +14,7 @@
  <div class="container">
     <div class="text-container">
         <!-- <img src="https://codepen-large-media.s3-ap-southeast-1.amazonaws.com/tumblr_o632cm2m4S1rurt8eo1_500.webp" class="video-svg"/> -->
-        <svg class="text-svg" width="100%" height="100%">
+        <svg class="text-svg" width="100%" height="100%" viewBox="0 0 800 500">
           <defs>
             <mask id="mask">
               <text x="50%" y="55%" class="svg-text" id="number-text" fill="white" text-anchor="middle">123456789</text>
@@ -30,8 +30,16 @@
     var numberText = document.getElementById('number-text');
     setInterval(function(){
       var diff = 1000000000 - 100000000
-      var nums = Math.floor(Math.random() * diff + 100000000);
-      numberText.innerHTML  = nums;
+      var nums = Math.floor(Math.random() * diff + 100000000).toString();
+      if(document.body.clientWidth > 768){
+        numberText.innerHTML  = nums;
+      }else{
+        numberText.innerHTML = `
+          <tspan x="56%" dy="-20%">${nums.slice(0, 3)}</tspan>
+          <tspan x="56%" dy="26%">${nums.slice(3, 6)}</tspan>
+          <tspan x="50%" dy="26%">${nums.slice(6, 9)}</tspan>
+        `
+      }
     }, 375)
   })()
  </script>
