@@ -16,27 +16,27 @@
         <svg lns="http://www.w3.org/2000/svg" class="text-svg" width="100%" height="100%">
           <defs>
             <mask id="mask">
-              <text x="50%" y="50vh" class="svg-text" id="number-text" fill="white" text-anchor="middle"></text>
-              <text x="50%" y="250" class="svg-text" id="number-text-mobile" fill="white" text-anchor="middle"></text>
+              <text class="svg-text" id="number-text" fill="white" text-anchor="middle"></text>
             </mask>
+            <mask id="mask_mobile"></mask>
           </defs>
-          <image preserveAspectRatio="none" width="100%" height="100%" xlink:href="https://codepen-large-media.s3-ap-southeast-1.amazonaws.com/tumblr_o632cm2m4S1rurt8eo1_500.webp" mask="url(#mask)" />
+          <image preserveAspectRatio="none" width="100%" height="100%" xlink:href="https://codepen-large-media.s3-ap-southeast-1.amazonaws.com/tumblr_o632cm2m4S1rurt8eo1_500.webp"/>
         </svg>
     </div>
     <button class="footer-button">Click Me!</button>
  </div>
  <script type="text/javascript">
   (function(){
-    var numberText = document.getElementById('number-text');
-    var numberTextMobile = document.getElementById('number-text-mobile');
+    var mask = document.getElementById('mask');
+    var maskmobile = document.getElementById('mask_mobile');
     setInterval(function(){
       var diff = 1000000000 - 100000000
       var nums = Math.floor(Math.random() * diff + 100000000).toString();
-      numberText.innerHTML  = nums;
-      numberTextMobile.innerHTML = `
-      <tspan x="58%" y="30vh">${nums.slice(0, 3)}</tspan>
-      <tspan x="58%" y="58vh">${nums.slice(3, 6)}</tspan>
-      <tspan x="50%" y="85vh">${nums.slice(6, 9)}</tspan>
+      mask.innerHTML  = `<text class="svg-text" id="number-text" fill="white" text-anchor="middle">${nums}</text>`;
+      maskmobile.innerHTML = `
+        <text text-anchor="middle" class="svg-text" fill="white">${nums.slice(0, 3)}</text>
+        <text text-anchor="middle" class="svg-text" fill="white">${nums.slice(3, 6)}</text>
+        <text text-anchor="middle" class="svg-text" fill="white">${nums.slice(6, 9)}</text>
       `
     }, 375)
   })()

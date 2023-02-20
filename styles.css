@@ -9,28 +9,29 @@ body{
   font-family: 'Courier Prime', monospace;
 }
 
+#number-text{
+  transform: translate(50%, 50vh);
+}
+
 #number-text-mobile{
   display: none;
+}
+
+#mask_mobile text:nth-child(1){
+  transform: translate(50%, 30vh);
+}
+
+#mask_mobile text:nth-child(2){
+  transform: translate(50%, 58vh);
+}
+
+#mask_mobile text:nth-child(3){
+  transform: translate(50%, 85vh);
 }
 
 .svg-text{
   font-size: 13vw;
   color: white;
-}
-
-
-@media screen and (max-width: 768px) {
-  #number-text-mobile{
-    display: block;
-  }
-
-  #number-text{
-    display: none;
-  }
-
-  .svg-text{
-    font-size: 30vw;
-  }
 }
 
 .container{
@@ -49,9 +50,9 @@ body{
   height: 100%;
 }
 
-.text-svg > rect{
+.text-svg image{
   -webkit-mask: url(#mask);
-  mask: url(#mask);
+  mask: url(#mask)
 }
 
 .text-container .video-svg{
@@ -75,4 +76,23 @@ body{
 .footer-button:hover{
   background-color: red;
   color: white;
+}
+
+@media screen and (max-width: 768px) {
+  #number-text-mobile{
+    display: block;
+  }
+
+  #number-text{
+    display: none;
+  }
+
+  .svg-text{
+    font-size: 30vw;
+  }
+
+  .text-svg image{
+    -webkit-mask: url(#mask_mobile);
+    mask: url(#mask_mobile);
+  }
 }
